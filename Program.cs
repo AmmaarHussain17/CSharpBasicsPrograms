@@ -17,12 +17,12 @@ class Program
 
 
         // 1. lines
-        // 2. leading trailing spaces => |employee name :    JOHN   doe|
-        // 3. separating lines by colon(key:value) => |employee name |                            
+        // 2. separating lines by colon(key:value) => |employee name |                            
         //                                            | JOHN   doe|
-        // 4. trailing spaces => |
-        // 4. Converting all sentences into lower cases
-        // 5. Adding an Underscore_ in keys.
+        // 3. Leading  spaces => | For Keys and Values
+        // 4. trailing spaces => | For Keys and Values
+        // 5. Converting all sentences into lower cases
+        // 6. Adding an Underscore_ in keys.
 
 
 
@@ -137,4 +137,5 @@ class Program
         //}
 
     }
+
 }
