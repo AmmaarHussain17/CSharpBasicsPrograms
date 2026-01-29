@@ -1,4 +1,4 @@
-﻿using ManualStringProcessing;
+using ManualStringProcessing;
 
 class Program
 {
@@ -21,8 +21,8 @@ class Program
         //                                            | JOHN   doe|
         // 3. Leading  spaces => | For Keys and Values
         // 4. trailing spaces => | For Keys and Values
-        // 5. Converting all sentences into lower cases
-        // 6. Adding an Underscore_ in keys.
+        // 4. Converting all sentences into lower cases
+        // 5. Adding an Underscore_ in keys.
 
 
 
@@ -77,28 +77,32 @@ class Program
             afterTrimmedStringValuesEnd[indexesForSeperatingSentencesValuesEnd++] = trimmedLineValuesEnds;
         }
 
-        foreach (string data3 in afterTrimmedStringValuesEnd)
-        {
-            Console.Write(data3);
-            Console.WriteLine();
-        }
+        
 
         string[] keysAfterConvertedIntoLowercase = new string[lines.Length];
         int indexesValuesAfterConvertedIntoLowercaseForKeys = 0;
-        foreach (string lowercaseForKeyData in eachKeyData)
+        foreach (string lowercaseForKeyData in afterTrimmedStringKeysEnd)
         {
             string afterConvertedIntoLowercase = SeperatingSentences.ConvertingSentencesIntoLowercase(lowercaseForKeyData);
             keysAfterConvertedIntoLowercase[indexesValuesAfterConvertedIntoLowercaseForKeys++] = afterConvertedIntoLowercase;
         }
-
+        foreach (string data3 in keysAfterConvertedIntoLowercase)
+        {
+            Console.Write(data3);
+            Console.WriteLine();
+        }
         string[] valuesAfterConvertedIntoLowercase = new string[lines.Length];
         int indexesValuesAfterConvertedIntoLowercaseForValues = 0;
-        foreach (string lowercaseForKeyData in eachKeyData)
+        foreach (string lowercaseForKeyData in afterTrimmedStringValues)
         {
             string afterConvertedIntoLowercase = SeperatingSentences.ConvertingSentencesIntoLowercase(lowercaseForKeyData);
             valuesAfterConvertedIntoLowercase[indexesValuesAfterConvertedIntoLowercaseForValues++] = afterConvertedIntoLowercase;
         }
-
+        foreach (string data3 in valuesAfterConvertedIntoLowercase)
+        {
+            Console.Write(data3);
+            Console.WriteLine();
+        }
 
 
 
@@ -137,5 +141,4 @@ class Program
         //}
 
     }
-
 }
