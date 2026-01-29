@@ -130,79 +130,17 @@ namespace ManualStringProcessing
             return keyAfterAddedUnderScore;
         }
 
+        public static int DuplicatesRemovalKeys(string[] keysData)
+        {
+            int i;
+            for(i = 0; i < keysData.Length - 1; i++)
+            {
+                if (keysData[i] == keysData[i + 1]) break;
+            }
+            return i + 1;
+        }
 
-
-        //public static void sentencesStrings(string data)
-        //{
-        //    int countSizeOfEachString = 0;
-        //    for (int i = 0; i < data.Length; i++)
-        //    {
-        //        if (data[i] == '\n') countSizeOfEachString++;
-        //    }
-
-        //    string[] eachLine = new string[countSizeOfEachString];
-        //    int nextLineStartingStringLength = 0;
-
-        //    for (int i = 0; i < eachLine.Length; i++)
-        //    {
-        //        int j = nextLineStartingStringLength;
-        //        while (j < data.Length)
-        //        {
-        //            if (data[j] == '\n') break;
-
-        //            eachLine[i] += data[j];
-
-        //            j++;
-        //        }
-        //        nextLineStartingStringLength = j + 1;
-        //    }
-
-        //    string[] eachFieldHeader = new string[countSizeOfEachString];
-        //    string[] eachFieldNames = new string[countSizeOfEachString];
-
-
-        //    
-
-        //    string[] namesAfterConvertingIntoLowercase = convertIntoLowercase(eachFieldNames);
-        //    string[] headersAfterConvertingIntoLowercase = convertIntoLowercase(eachFieldHeader);
-
-        //    underscoreAdderAtHeader(headersAfterConvertingIntoLowercase);
-
-        //    //underscoreAdder(eachFieldHeader);
-
-        //}
-        //public static string[] convertIntoLowercase(string[] headerConvertIntoLowerCase)
-        //{
-        //    for (int i = 0; i < headerConvertIntoLowerCase.Length; i++)
-        //    {
-        //        char[] chars = headerConvertIntoLowerCase[i].ToCharArray();
-
-        //        for (int j = 0; j < chars.Length; j++)
-        //        {
-        //            if (chars[j] >= 'A' && chars[j] <= 'Z')
-        //            {
-        //                chars[j] = (char)(chars[j] + 32);
-        //            }
-        //        }
-        //        headerConvertIntoLowerCase[i] = new string(chars);
-
-        //    }
-        //    //foreach (string temp in headerConvertIntoLowerCase)
-        //    //{
-        //    //    Console.WriteLine(temp);
-        //    //}
-        //    return headerConvertIntoLowerCase;
-        //}
-        //public static void underscoreAdderAtHeader(string[] adderUnderscoreInHeaders)
-        //{
-        //    for (int str = 0; str < adderUnderscoreInHeaders.Length; str++)
-        //    {
-
-        //    }
-        //foreach (string temp in adderUnderscoreInHeaders)
-        //{
-        //    Console.WriteLine(temp);
-        //}
+        
 
     }
 }
