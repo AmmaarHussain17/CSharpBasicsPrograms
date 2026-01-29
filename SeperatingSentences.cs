@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Reflection.Metadata.Ecma335;
@@ -117,18 +117,18 @@ namespace ManualStringProcessing
             return lowercaseConvertedEachLine;
         }
 
-        //public static string addAnUnderscoreInKeys(string eachKeySentence)
-        //{
-        //    string keyAfterAddedUnderScore = null;
-        //    for(int i = 0; i < eachKeySentence.Length - 1; i++)
-        //    {
-        //        if (eachKeySentence[i] == ' ')
-        //            keyAfterAddedUnderScore += '_';
-        //        else
-        //            keyAfterAddedUnderScore += eachKeySentence[i];
-        //    }
-        //    return keyAfterAddedUnderScore;
-        //}
+        public static string addAnUnderscoreInKeys(string eachKeySentence)
+        {
+            string keyAfterAddedUnderScore = null;
+            for (int i = 0; i < eachKeySentence.Length; i++)
+            {
+                if (eachKeySentence[i] == ' ')
+                    keyAfterAddedUnderScore += '_';
+                else
+                    keyAfterAddedUnderScore += eachKeySentence[i];
+            }
+            return keyAfterAddedUnderScore;
+        }
 
 
 
