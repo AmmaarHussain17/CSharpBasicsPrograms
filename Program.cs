@@ -23,6 +23,7 @@ class Program
         // 4. trailing spaces => | For Keys and Values
         // 4. Converting all sentences into lower cases
         // 5. Adding an Underscore_ in keys.
+        // 6. Removing Duplicates => | remarks == remarks
 
 
 
@@ -77,8 +78,6 @@ class Program
             afterTrimmedStringValuesEnd[indexesForSeperatingSentencesValuesEnd++] = trimmedLineValuesEnds;
         }
 
-        
-
         string[] keysAfterConvertedIntoLowercase = new string[lines.Length];
         int indexesValuesAfterConvertedIntoLowercaseForKeys = 0;
         foreach (string lowercaseForKeyData in afterTrimmedStringKeysEnd)
@@ -86,7 +85,7 @@ class Program
             string afterConvertedIntoLowercase = SeperatingSentences.ConvertingSentencesIntoLowercase(lowercaseForKeyData);
             keysAfterConvertedIntoLowercase[indexesValuesAfterConvertedIntoLowercaseForKeys++] = afterConvertedIntoLowercase;
         }
-        
+
         string[] valuesAfterConvertedIntoLowercase = new string[lines.Length];
         int indexesValuesAfterConvertedIntoLowercaseForValues = 0;
         foreach (string lowercaseForKeyData in afterTrimmedStringValues)
@@ -102,21 +101,32 @@ class Program
             string keyAfterAddedUnderScore = SeperatingSentences.addAnUnderscoreInKeys(keyBeforeAddedUnderScore);
             keysAfterAddedUnderscore[indexesValuesAfterAddedUnderscoreForKeys++] = keyAfterAddedUnderScore;
         }
-        foreach (string dataTemp in keysAfterAddedUnderscore)
+
+        int stringSizeAfterDuplicateRemoval = 0;
+
+        stringSizeAfterDuplicateRemoval = SeperatingSentences.DuplicatesRemovalKeys(keysAfterAddedUnderscore);
+
+        string[] afterDuplicateRemovalKeys = new string[stringSizeAfterDuplicateRemoval];
+        string[] afterDuplicateRemovalValues = new string[stringSizeAfterDuplicateRemoval];
+        
+        for (int i = 0; i < stringSizeAfterDuplicateRemoval; i++)
         {
-            Console.WriteLine(dataTemp);
+            afterDuplicateRemovalKeys[i] = keysAfterAddedUnderscore[i];
+        }
+        for (int i = 0; i < stringSizeAfterDuplicateRemoval; i++)
+        {
+            afterDuplicateRemovalValues[i] = valuesAfterConvertedIntoLowercase[i];
+        }
+        foreach (string data3 in afterDuplicateRemovalKeys)
+        {
+            Console.WriteLine(data3);
+        }
+        foreach (string data3 in afterDuplicateRemovalValues)
+        {
+            Console.WriteLine(data3);
         }
 
 
-
-
-        //foreach (string dataTemp in valuesAfterConvertedIntoLowercase)
-        //{
-        //    Console.WriteLine(dataTemp);
-        //}
-        //Console.Write($"{eachKeyData[0]} ");
-        //Console.Write($"{eachValuesData[0]} ");
-        //SeperatingSentences.sentencesStrings(data);
 
 
         //string data = "abc\n" +
