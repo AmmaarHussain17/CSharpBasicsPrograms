@@ -86,11 +86,7 @@ class Program
             string afterConvertedIntoLowercase = SeperatingSentences.ConvertingSentencesIntoLowercase(lowercaseForKeyData);
             keysAfterConvertedIntoLowercase[indexesValuesAfterConvertedIntoLowercaseForKeys++] = afterConvertedIntoLowercase;
         }
-        foreach (string data3 in keysAfterConvertedIntoLowercase)
-        {
-            Console.Write(data3);
-            Console.WriteLine();
-        }
+        
         string[] valuesAfterConvertedIntoLowercase = new string[lines.Length];
         int indexesValuesAfterConvertedIntoLowercaseForValues = 0;
         foreach (string lowercaseForKeyData in afterTrimmedStringValues)
@@ -98,25 +94,18 @@ class Program
             string afterConvertedIntoLowercase = SeperatingSentences.ConvertingSentencesIntoLowercase(lowercaseForKeyData);
             valuesAfterConvertedIntoLowercase[indexesValuesAfterConvertedIntoLowercaseForValues++] = afterConvertedIntoLowercase;
         }
-        foreach (string data3 in valuesAfterConvertedIntoLowercase)
+
+        string[] keysAfterAddedUnderscore = new string[lines.Length];
+        int indexesValuesAfterAddedUnderscoreForKeys = 0;
+        foreach (string keyBeforeAddedUnderScore in keysAfterConvertedIntoLowercase)
         {
-            Console.Write(data3);
-            Console.WriteLine();
+            string keyAfterAddedUnderScore = SeperatingSentences.addAnUnderscoreInKeys(keyBeforeAddedUnderScore);
+            keysAfterAddedUnderscore[indexesValuesAfterAddedUnderscoreForKeys++] = keyAfterAddedUnderScore;
         }
-
-
-
-        //string[] keysAfterAddedUnderscore = new string[lines.Length];
-        //int indexesValuesAfterAddedUnderscoreForKeys = 0;
-        //foreach (string keyBeforeAddedUnderScore in keysAfterConvertedIntoLowercase)
-        //{
-        //    string keyAfterAddedUnderScore = SeperatingSentences.addAnUnderscoreInKeys(keyBeforeAddedUnderScore);
-        //    keysAfterAddedUnderscore[indexesValuesAfterAddedUnderscoreForKeys++] = keyAfterAddedUnderScore;
-        //}
-        //foreach (string dataTemp in keysAfterAddedUnderscore)
-        //{
-        //    Console.WriteLine(dataTemp);
-        //}
+        foreach (string dataTemp in keysAfterAddedUnderscore)
+        {
+            Console.WriteLine(dataTemp);
+        }
 
 
 
