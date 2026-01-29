@@ -13,6 +13,7 @@ namespace ManualStringProcessing
     }
     internal class SeperatingSentences
     {
+        // Separating Single string into proper lines.
         public static string[] Lines(string data)
         {
             int countSizeOfEachString = 0;
@@ -40,6 +41,7 @@ namespace ManualStringProcessing
             return eachLine;
         }
         
+        // Breaking keys and values relations of Each String.
         public static MyKeyValue BreakingKeyAndValuesInEachSentence(string keyAndValueString)
         {
             string eachKey = null;
@@ -69,6 +71,7 @@ namespace ManualStringProcessing
             return keyValue;
         }
 
+        // Trimming Leading Zeroes of Keys and Values.
         public static string LeadingSpacesTrimmed(string line)
         {
             string eachLine = null;
@@ -86,6 +89,7 @@ namespace ManualStringProcessing
             return eachLine;
         }
 
+        // Trimming Trailing Zeroes of Keys and Values.
         public static string trailingSpacesTrimmed(string line)
         {
             string eachLine = null;
@@ -104,6 +108,8 @@ namespace ManualStringProcessing
             }
             return eachLine;
         }
+
+        // Converting keys and values into Lowercase.
         public static string ConvertingSentencesIntoLowercase(string eachSentenceData)
         {
             string lowercaseConvertedEachLine = null;
@@ -117,7 +123,8 @@ namespace ManualStringProcessing
             return lowercaseConvertedEachLine;
         }
 
-        public static string addAnUnderscoreInKeys(string eachKeySentence)
+        // Adding Underscore in keys between two words. 
+        public static string AddAnUnderscoreInKeys(string eachKeySentence)
         {
             string keyAfterAddedUnderScore = null;
             for (int i = 0; i < eachKeySentence.Length; i++)
@@ -130,6 +137,7 @@ namespace ManualStringProcessing
             return keyAfterAddedUnderScore;
         }
 
+        // Remving Duplicates in Keys.
         public static int DuplicatesRemovalKeys(string[] keysData)
         {
             int i;
@@ -140,7 +148,70 @@ namespace ManualStringProcessing
             return i + 1;
         }
 
-        
+        // Removing Extra Spaces present in Middle of Values.
+        public static string ExtraMiddleSpacesRemoval(string line)
+        {
+            string afterExtraMiddleSpacesRemoved = null;
+            for(int i = 0; i < line.Length; i++)
+            {
+                if(i == 0 || line[i] != ' ' || line[i - 1] != ' ')
+                    afterExtraMiddleSpacesRemoved += line[i];
+            }
+            return afterExtraMiddleSpacesRemoved;
+        }
 
+        // Removing Extra Zeroes in the Beginning.
+        public static string RemoveZeroInBeginningOfString(string line)
+        {
+            string afterZeroesRemoval = null;
+            for(int i = 0; i < line.Length; i++)
+            {
+                if (line[i] != '0')
+                {
+                    for(int j = i; j < line.Length; j++)
+                    {
+                        afterZeroesRemoval += line[i++];
+                    }
+                    break;
+                }
+            }
+            return afterZeroesRemoval;
+        }
+
+        // Removing Spaces where not needed.
+        public static string RemoveSpaces(string line)
+        {
+            string lineAfterSpacesRemoval = null;
+            for(int i = 0; i < line.Length; i++)
+            {
+                if (line[i] == ' ') continue;
+                lineAfterSpacesRemoval += line[i];
+            }
+            return lineAfterSpacesRemoval;
+        }
+
+        //Removing Spaces and Hypen where not needed.
+        public static string RemoveExtraSpacesAndHyphen(string line)
+        {
+            string lineAfterSpacesAndHyphenRemoval = null;
+            for(int i = 0; i < line.Length; i++)
+            {
+                if (line[i] == ' ' || line[i] == '-') continue;
+                lineAfterSpacesAndHyphenRemoval += line[i];
+            }
+            return lineAfterSpacesAndHyphenRemoval;
+        }
+
+        // Concatenating all the Keys and Values into a single String.
+        public static string AllStringsConcatenated(string[] keys, string[] values,int size)
+        {
+            string finalConcatedString = null;
+            string colonWithProperSpaces = " : ";
+            for(int i = 0; i < size; i++)
+            {
+                finalConcatedString += keys[i] + colonWithProperSpaces + values[i] + "\n";
+            }
+            return finalConcatedString;
+        }
     }
 }
